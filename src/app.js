@@ -1,13 +1,19 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 import router from './routes/router';
 import { check } from './config/database';
+import { ExampleMiddleware } from './middleware';
 
 const
   app = express(),
   port = 3000;
 
 check();
+
+app.use(bodyParser);
+app.use(ExampleMiddleware);
+
 router(app);
   
 app.listen(port, () => {
