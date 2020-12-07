@@ -11,11 +11,12 @@ const
 
 check();
 
-app.use(bodyParser);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true,
+}));
 app.use(ExampleMiddleware);
 
 router(app);
   
-app.listen(port, () => {
-  console.log(`\nServer Running at http://localhost:${port}/ or http://127.0.0.1:${port}/`)
-});
+app.listen(port, () => console.log(`\nServer Running at http://localhost:${port}/ or http://127.0.0.1:${port}/`));

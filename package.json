@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/app.js"
+    "start": "nodemon --exec babel-node dist/app.js",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "transpile": "babel ./src --out-dir dist",
+    "clean": "rimraf dist",
+    "build": "npm-run-all clean transpile"
   },
   "keywords": [],
   "author": "alfigufron",
@@ -13,6 +17,8 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { User } from '../../controllers';
+import { User } from '../controllers';
 
 const router = express.Router();
 

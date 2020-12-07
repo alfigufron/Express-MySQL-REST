@@ -3,9 +3,9 @@ import { Sequelize } from 'sequelize';
 const 
   development = {
     user: 'root',
-    pass: '',
+    pass: 'pass1903',
     host: '127.0.0.1',
-    db: '',
+    db: 'school-web-app',
   },
 
   production = {
