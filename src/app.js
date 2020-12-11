@@ -19,4 +19,7 @@ app.use(ExampleMiddleware);
 
 router(app);
   
-app.listen(port, () => console.log(`\nServer Running at http://localhost:${port}/ or http://127.0.0.1:${port}/`));
+app.listen(
+  process.env.PORT || port,
+  () => console.log(`\nServer Running at http://localhost:${port}/ or http://127.0.0.1:${port}/`)
+);
