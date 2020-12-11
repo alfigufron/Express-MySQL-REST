@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/controllers/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;AAAA","sourcesContent":["import User from './module/user';\r\n\r\nexport { User }"],"file":"index.js"}

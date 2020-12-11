@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/router.js"],"names":["routes","app","use","User"],"mappings":";;;;;;;;;AAAA;;AAEe,SAASA,MAAT,CAAgBC,GAAhB,EAAqB;AAClCA,EAAAA,GAAG,CAACC,GAAJ,CAAQ,OAAR,EAAiBC,gBAAjB;AACD","sourcesContent":["import User from './routes/user';\r\n\r\nexport default function routes(app) {\r\n  app.use('/user', User);\r\n}"],"file":"router.js"}
