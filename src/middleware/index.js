@@ -1,3 +1,3 @@
-import ExampleMiddleware from './module/example';
+import ExampleMiddleware from './module/Example';
 
 export { ExampleMiddleware };

@@ -5,6 +5,14 @@ import router from './router';
 import { check } from './config/database';
 import { ExampleMiddleware } from './middleware';
 
+express.application.prefix = express.Router.prefix = function (path, config) {
+  let router = express.Router();
+  this.use(path, router);
+  config(router);
+
+  return router;
+}
+
 const
   app = express(),
   port = 3000;

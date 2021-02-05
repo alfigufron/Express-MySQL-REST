@@ -1,5 +1,9 @@
-import User from './routes/user';
+import { UserController } from './controllers';
 
 export default function routes(app) {
-  app.use('/user', User);
+  app.get('/', (req, res) => res.send(200));
+
+  app.prefix('/user', (user) => {
+    user.route('/').get(UserController.getAll);
+  });
 }

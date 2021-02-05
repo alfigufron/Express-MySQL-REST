@@ -1,3 +1,3 @@
-import User from './module/user';
+import UserController from './module/User';
 
-export { User }
+export { UserController }

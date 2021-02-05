@@ -3,9 +3,9 @@ import { Sequelize } from 'sequelize';
 const 
   development = {
     user: 'root',
-    pass: '',
+    pass: 'pass1234',
     host: '127.0.0.1',
-    db: '',
+    db: 'crud-laravel-api',
   },
 
   production = {
