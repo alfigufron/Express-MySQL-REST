@@ -12,8 +12,17 @@ var _database = require("./config/database");
 
 var _middleware = require("./middleware");
 
-var app = (0, _express["default"])(),
-    port = 3000;
+// eslint-disable-next-line no-multi-assign, func-names
+_express["default"].application.prefix = _express["default"].Router.prefix = function (path, configure) {
+  var prefixRouter = _express["default"].Router();
+
+  this.use(path, prefixRouter);
+  configure(prefixRouter);
+  return prefixRouter;
+};
+
+var app = (0, _express["default"])();
+var port = 3000;
 (0, _database.check)();
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({

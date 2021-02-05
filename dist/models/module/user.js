@@ -11,8 +11,9 @@ var _sequelize = _interopRequireDefault(require("sequelize"));
 
 var _database = require("../../config/database");
 
-var DataTypes = _sequelize["default"].DataTypes,
-    Model = _database.db.define('User', {
+var DataTypes = _sequelize["default"].DataTypes;
+
+var Model = _database.db.define('User', {
   columnName: DataTypes.STRING(),
   allowNull: false
 }, {
@@ -21,4 +22,4 @@ var DataTypes = _sequelize["default"].DataTypes,
 
 var _default = Model;
 exports["default"] = _default;
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=User.js.map

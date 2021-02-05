@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/middleware/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;AAAA","sourcesContent":["import ExampleMiddleware from './module/example';\r\n\r\nexport { ExampleMiddleware };"],"file":"index.js"}
+{"version":3,"sources":["../../src/middleware/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["import ExampleMiddleware from './module/Example';\nimport TestMiddleware from './module/Test';\n\nexport { ExampleMiddleware, TestMiddleware };\n"],"file":"index.js"}
