@@ -22,4 +22,4 @@ var Model = _database.db.define('User', {
 
 var _default = Model;
 exports["default"] = _default;
-//# sourceMappingURL=User.js.map
+//# sourceMappingURL=user.js.map

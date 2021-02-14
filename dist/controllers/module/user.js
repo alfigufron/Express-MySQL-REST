@@ -38,4 +38,4 @@ var Controller = {
 };
 var _default = Controller;
 exports["default"] = _default;
-//# sourceMappingURL=User.js.map
+//# sourceMappingURL=user.js.map

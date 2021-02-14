@@ -8,10 +8,9 @@ var _bodyParser = _interopRequireDefault(require("body-parser"));
 
 var _router = _interopRequireDefault(require("./router"));
 
-var _database = require("./config/database");
-
 var _middleware = require("./middleware");
 
+// import { check } from './config/database';
 // eslint-disable-next-line no-multi-assign, func-names
 _express["default"].application.prefix = _express["default"].Router.prefix = function (path, configure) {
   var prefixRouter = _express["default"].Router();
@@ -22,8 +21,8 @@ _express["default"].application.prefix = _express["default"].Router.prefix = fun
 };
 
 var app = (0, _express["default"])();
-var port = 3000;
-(0, _database.check)();
+var port = 3000; // check();
+
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: true

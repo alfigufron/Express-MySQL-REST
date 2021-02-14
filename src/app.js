@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import router from './router';
-import { check } from './config/database';
+// import { check } from './config/database';
 import { ExampleMiddleware } from './middleware';
 
 // eslint-disable-next-line no-multi-assign, func-names
@@ -17,7 +17,7 @@ express.application.prefix = express.Router.prefix = function (path, configure) 
 const app = express();
 const port = 3000;
 
-check();
+// check();
 
 app.use(bodyParser.json());
 app.use(

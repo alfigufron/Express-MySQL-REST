@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/models/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["import User from './module/User';\nimport UserA from './module/Test';\n\nexport { User, UserA };\n"],"file":"index.js"}
+{"version":3,"sources":["../../src/models/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["import User from './module/User';\r\nimport UserA from './module/Test';\r\n\r\nexport { User, UserA };\r\n"],"file":"index.js"}

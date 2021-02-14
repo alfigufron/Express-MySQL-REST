@@ -10,4 +10,4 @@ function example(req, res, next) {
   console.log("URL : ".concat(req.originalUrl));
   return next();
 }
-//# sourceMappingURL=Example.js.map
+//# sourceMappingURL=example.js.map
