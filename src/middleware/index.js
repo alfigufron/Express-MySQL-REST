@@ -1,4 +1,4 @@
-import ExampleMiddleware from './module/Example';
-import TestMiddleware from './module/Test';
+import errorHandler from './module/errorHandler';
+import requestHandler from './module/requestHandler';
 
-export { ExampleMiddleware, TestMiddleware };
+export { errorHandler, requestHandler };
