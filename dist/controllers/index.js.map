@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/controllers/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["import UserController from './module/User';\r\nimport TestController from './module/Test';\r\n\r\nexport { UserController, TestController };\r\n"],"file":"index.js"}

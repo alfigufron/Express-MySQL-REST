@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/middleware/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["import ExampleMiddleware from './module/Example';\r\nimport TestMiddleware from './module/Test';\r\n\r\nexport { ExampleMiddleware, TestMiddleware };\r\n"],"file":"index.js"}
