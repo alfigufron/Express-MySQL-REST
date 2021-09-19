@@ -1,10 +1,5 @@
 import { UserModel } from "../../database/models";
-import {
-  ErrorHandler,
-  httpResponse,
-  httpSuccess,
-  httpSuccessWithData,
-} from "../../config/http";
+import { ErrorHandler, httpResponse } from "../../config/http";
 
 export default {
   getAll: async (req, res, next) => {
