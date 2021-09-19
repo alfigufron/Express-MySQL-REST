@@ -1,4 +1,4 @@
-import logger from "../../util/logger";
+import logger from "../../utils/logger";
 import { urlFormatter } from "../../config/http";
 
 const handleError = (req, res, next) => {

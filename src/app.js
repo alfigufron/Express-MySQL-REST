@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 
-import logger from "./util/logger";
+import logger from "./utils/logger";
 import router from "./routes";
 import { errorHandler, requestHandler } from "./middleware";
 import { connectionCheck } from "./database";
@@ -42,3 +42,5 @@ async function startServer() {
 }
 
 startServer();
+
+export default app;

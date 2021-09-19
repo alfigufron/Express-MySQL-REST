@@ -1,6 +1,7 @@
 import { UserModel } from "../../database/models";
 import {
   ErrorHandler,
+  httpResponse,
   httpSuccess,
   httpSuccessWithData,
 } from "../../config/http";
@@ -10,7 +11,7 @@ export default {
     try {
       const data = await UserModel.findAll();
 
-      httpSuccessWithData(res, "Get All User Successfully", data);
+      httpResponse(res, "success", "Get All User Successfully", data);
     } catch (err) {
       next(new ErrorHandler(err.message, err.status || 500));
     }
@@ -26,7 +27,7 @@ export default {
         password,
       });
 
-      httpSuccessWithData(res, "Create User Successfully", user);
+      httpResponse(res, "success", "Create User Successfully", user, 201);
     } catch (err) {
       next(new ErrorHandler(err.message, err.status || 500));
     }
@@ -39,7 +40,7 @@ export default {
       const data = await UserModel.findByPk(id);
       if (!data) throw new ErrorHandler("Data Not Found", 404);
 
-      httpSuccessWithData(res, "Get Detail User Successfully", data);
+      httpResponse(res, "success", "Get Detail User Successfully", data);
     } catch (err) {
       next(new ErrorHandler(err.message, err.status || 500));
     }
@@ -55,7 +56,7 @@ export default {
 
       await UserModel.update({ name, email, password }, { where: { id } });
 
-      httpSuccess(res, "Update User Successfully");
+      httpResponse(res, "success", "Update User Successfully");
     } catch (err) {
       next(new ErrorHandler(err.message, err.status || 500));
     }
@@ -70,7 +71,7 @@ export default {
 
       await UserModel.destroy({ where: { id } });
 
-      httpSuccess(res, "Delete User Successfully");
+      httpResponse(res, "success", "Delete User Successfully");
     } catch (err) {
       next(new ErrorHandler(err.message, err.status || 500));
     }

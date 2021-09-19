@@ -15,11 +15,6 @@ const Model = db.define(
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: "Name cannot be empty",
-        },
-      },
     },
     email: {
       type: DataTypes.STRING(255),
@@ -32,7 +27,6 @@ const Model = db.define(
     },
   },
   {
-    tableName: "users",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",

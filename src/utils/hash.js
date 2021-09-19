@@ -4,7 +4,6 @@ const saltRounds = 10;
 
 function hashing(plainText) {
   const salt = bcrypt.genSaltSync(saltRounds);
-  console.log(plainText);
 
   return bcrypt.hash(plainText, salt);
 }

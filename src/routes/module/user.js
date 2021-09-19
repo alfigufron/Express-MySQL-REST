@@ -1,6 +1,6 @@
 import express from "express";
 
-import { UserController } from "../../controller";
+import { UserController } from "../../controllers";
 import { resultValidator, UserValidator } from "../../validator";
 
 const route = express.Router();

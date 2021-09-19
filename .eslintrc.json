@@ -18,6 +18,8 @@
 		"linebreak-style": "off",
 		"consistent-return": "off",
 		"import/prefer-default-export": "off",
+		"no-param-reassign": "off",
+		"camelcase": "off",
 		"prettier/prettier": ["warn", {
 			"endOfLine": "auto",
 			"singleQuote": false,
