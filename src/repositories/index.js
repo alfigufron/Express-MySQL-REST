@@ -1,3 +1,3 @@
-import baseRepository from "./module/base-repository";
+import BaseRepository from "./module/base.repository";
 
-export { baseRepository };
+export { BaseRepository };

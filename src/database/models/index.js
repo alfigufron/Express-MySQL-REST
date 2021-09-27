@@ -1,3 +1,3 @@
-import UserModel from "./module/user-model";
+import UserModel from "./module/user.model";
 
 export { UserModel };

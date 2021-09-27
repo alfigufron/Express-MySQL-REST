@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 
 import config from "../config";
+import { BaseRepository } from "../repositories";
 import logger from "../utils/logger";
 
 const db = new Sequelize(config.DB.NAME, config.DB.USER, config.DB.PASSWORD, {
@@ -32,16 +33,19 @@ async function updateOrCreate(model, where, payload, transaction = null) {
   return result;
 }
 
-function pagination(data, current_page) {
-  const { docs: records, pages: total_page, total: total_records } = data;
-  current_page = Number(current_page);
+function paginate(data, current_page = 1, limit = 10) {
+  const total_records = data.length;
+  const total_page = Math.ceil(total_records / limit);
+
+  let records = BaseRepository.jsonParse(data);
+  records = records.slice((current_page - 1) * limit, current_page * limit);
 
   return {
-    current_page,
+    current_page: Number(current_page),
     total_page,
     total_records,
     records,
   };
 }
 
-export { db, connectionCheck, dbTransaction, updateOrCreate, pagination };
+export { db, connectionCheck, dbTransaction, updateOrCreate, paginate };

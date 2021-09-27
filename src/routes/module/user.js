@@ -5,7 +5,7 @@ import { resultValidator, UserValidator } from "../../validator";
 
 const route = express.Router();
 
-function userRouter() {
+export default function userRouter() {
   route.get("/", UserController.getAll);
   route.post(
     "/",
@@ -24,5 +24,3 @@ function userRouter() {
 
   return route;
 }
-
-export default userRouter;

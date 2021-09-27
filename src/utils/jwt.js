@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import config from "../config";
 import { ErrorHandler } from "../config/http";
 
-const expTime = 3600;
+const expTime = 3600; // Default 3600
 
 async function generateToken(user) {
   try {

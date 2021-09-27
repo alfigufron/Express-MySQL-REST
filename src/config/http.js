@@ -40,27 +40,4 @@ function httpResponse(response, status, message, data = null, code = null) {
   return response.status(code).send(result);
 }
 
-function httpSuccess(response, message, status = 200) {
-  logger.info(message);
-
-  return response.status(status).send({
-    message,
-  });
-}
-
-function httpSuccessWithData(response, message, data, status = 200) {
-  logger.info(message);
-
-  return response.status(status).send({
-    message,
-    data,
-  });
-}
-
-export {
-  urlFormatter,
-  httpSuccess,
-  httpSuccessWithData,
-  ErrorHandler,
-  httpResponse,
-};
+export { urlFormatter, httpResponse, ErrorHandler };
