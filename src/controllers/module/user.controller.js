@@ -1,10 +1,18 @@
 import { UserModel } from "../../database/models";
 import { ErrorHandler, httpResponse } from "../../config/http";
+import { offsetPagination, pagination } from "../../database";
 
 export default {
-  getAll: async (req, res, next) => {
+  all: async (req, res, next) => {
     try {
-      const data = await UserModel.findAll();
+      const { page = 1, limit = 10 } = req.query;
+
+      let data = await UserModel.findAndCountAll({
+        limit: Number(limit),
+        offset: offsetPagination(page, limit),
+      });
+
+      data = pagination(data, page, limit);
 
       httpResponse(res, "success", "Get All User Successfully", data);
     } catch (err) {

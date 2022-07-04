@@ -6,7 +6,7 @@ import { resultValidator, UserValidator } from "../../validator";
 const route = express.Router();
 
 export default function userRouter() {
-  route.get("/", UserController.getAll);
+  route.get("/", UserController.all);
   route.post(
     "/",
     UserValidator.createData,
