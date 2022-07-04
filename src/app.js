@@ -5,11 +5,12 @@ import helmet from "helmet";
 
 import logger from "./utils/logger";
 import router from "./routes";
+import config from "./config";
 import { errorHandler, requestHandler } from "./middleware";
 import { connectionCheck } from "./database";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.APP.PORT;
 
 async function startServer() {
   app.use(bodyParser.json());
@@ -35,6 +36,9 @@ async function startServer() {
     console.clear();
     logger.info(
       `Server Running at http://localhost:${port}/ or http://127.0.0.1:${port}/`
+    );
+    logger.info(
+      `${config.APP.MODE === "PROD" ? "Production" : "Development"} Mode`
     );
   });
 

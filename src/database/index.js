@@ -6,8 +6,14 @@ import logger from "../utils/logger";
 
 const db = new Sequelize(config.DB.NAME, config.DB.USER, config.DB.PASSWORD, {
   host: config.DB.HOST,
+  port: config.DB.PORT,
   dialect: "mysql",
   logging: false,
+  pool: {
+    max: 6,
+    min: 0,
+    idle: 20000,
+  },
 });
 
 async function connectionCheck() {
