@@ -1,6 +1,6 @@
 import { UserModel } from "../../database/models";
 import { ErrorHandler, httpResponse } from "../../config/http";
-import { offsetPagination, pagination } from "../../database";
+import { dbTransaction, offsetPagination, pagination } from "../../database";
 
 export default {
   all: async (req, res, next) => {
@@ -21,6 +21,8 @@ export default {
   },
 
   create: async (req, res, next) => {
+    const t = await dbTransaction();
+
     try {
       const { name, email, password } = req.body;
 
@@ -30,8 +32,12 @@ export default {
         password,
       });
 
+      t.commit();
+
       httpResponse(res, "success", "Create User Successfully", user, 201);
     } catch (err) {
+      t.rollback();
+
       next(new ErrorHandler(err.message, err.status || 500));
     }
   },
@@ -50,6 +56,8 @@ export default {
   },
 
   update: async (req, res, next) => {
+    const t = await dbTransaction();
+
     try {
       const { id } = req.params;
       const { name, email, password } = req.body;
@@ -59,13 +67,19 @@ export default {
 
       await UserModel.update({ name, email, password }, { where: { id } });
 
+      t.commit();
+
       httpResponse(res, "success", "Update User Successfully");
     } catch (err) {
+      t.rollback();
+
       next(new ErrorHandler(err.message, err.status || 500));
     }
   },
 
   delete: async (req, res, next) => {
+    const t = await dbTransaction();
+
     try {
       const { id } = req.params;
 
@@ -74,8 +88,12 @@ export default {
 
       await UserModel.destroy({ where: { id } });
 
+      t.commit();
+
       httpResponse(res, "success", "Delete User Successfully");
     } catch (err) {
+      t.rollback();
+
       next(new ErrorHandler(err.message, err.status || 500));
     }
   },
