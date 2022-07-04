@@ -15,8 +15,8 @@ const config = {
   },
   APP: {
     MODE: process.env.APP_MODE,
-    PORT: process.env.APP_PORT
-  }
+    PORT: process.env.APP_PORT,
+  },
 };
 
 export default config;
