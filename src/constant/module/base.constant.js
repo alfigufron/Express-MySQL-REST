@@ -1,7 +1,10 @@
+const status = {
+  ONGOING: "ONGOING",
+  DONE: "DONE",
+  PENDING: "PENDING",
+};
+
 export default {
-  STATUS: {
-    ONGOING: "ONGOING",
-    DONE: "DONE",
-    PENDING: "PENDING",
-  },
+  STATUS: status,
+  ALL_STATUS: Object.keys(status).map(key => status[key]),
 };
