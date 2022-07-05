@@ -14,9 +14,9 @@ export default {
 
       data = pagination(data, page, limit);
 
-      httpResponse(res, "success", "Get All User Successfully", data);
+      httpResponse(res, "Get All User Successfully", data);
     } catch (err) {
-      next(new ErrorHandler(err.message, err.status || 500));
+      next(new ErrorHandler(err.message, err.data, err.status));
     }
   },
 
@@ -38,7 +38,7 @@ export default {
     } catch (err) {
       t.rollback();
 
-      next(new ErrorHandler(err.message, err.status || 500));
+      next(new ErrorHandler(err.message, err.data, err.status));
     }
   },
 
@@ -51,7 +51,7 @@ export default {
 
       httpResponse(res, "success", "Get Detail User Successfully", data);
     } catch (err) {
-      next(new ErrorHandler(err.message, err.status || 500));
+      next(new ErrorHandler(err.message, err.data, err.status));
     }
   },
 
@@ -73,7 +73,7 @@ export default {
     } catch (err) {
       t.rollback();
 
-      next(new ErrorHandler(err.message, err.status || 500));
+      next(new ErrorHandler(err.message, err.data, err.status));
     }
   },
 
@@ -94,7 +94,7 @@ export default {
     } catch (err) {
       t.rollback();
 
-      next(new ErrorHandler(err.message, err.status || 500));
+      next(new ErrorHandler(err.message, err.data, err.status));
     }
   },
 };

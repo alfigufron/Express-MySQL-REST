@@ -15,7 +15,12 @@ const logger = winston.createLogger({
 
       const resLog = `${timestamp} [${level}] : `;
 
-      if (log.meta) message = `[${message}] ${log.meta.url}`;
+      if (log.meta) {
+        const { url, ip } = log.meta;
+
+        if (url) message = `[${message}] ${url}`;
+        if (ip) message = `${ip} | ${message}`;
+      }
 
       return resLog + message;
     })

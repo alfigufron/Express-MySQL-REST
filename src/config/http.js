@@ -2,7 +2,7 @@ import url from "url";
 import logger from "../utils/logger";
 
 class ErrorHandler extends Error {
-  constructor(message, data = null, status) {
+  constructor(message, data = null, status = 400) {
     super();
     this.message = message;
     this.status = status;
@@ -18,24 +18,18 @@ function urlFormatter(request) {
   });
 }
 
-function httpResponse(response, status, message, data = null, code = null) {
+function httpResponse(response, message, data = null, code = 200) {
   logger.info(message);
-
-  if (!code) code = status === "success" ? 200 : 400;
 
   const result = {
     meta: {
-      status,
+      status: "success",
       message,
       code,
     },
   };
 
-  if (status === "success") {
-    if (data) result.data = data;
-  } else {
-    result.error = data;
-  }
+  if (data) result.data = data;
 
   return response.status(code).send(result);
 }

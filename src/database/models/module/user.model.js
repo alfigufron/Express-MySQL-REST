@@ -4,7 +4,7 @@ import { db } from "../../index";
 const { DataTypes } = sequelizePkg;
 
 const Model = db.define(
-  "User",
+  "user",
   {
     id: {
       type: DataTypes.BIGINT(20).UNSIGNED,
@@ -28,8 +28,8 @@ const Model = db.define(
   },
   {
     timestamps: true,
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    underscored: true,
+    paranoid: true,
   }
 );
 
