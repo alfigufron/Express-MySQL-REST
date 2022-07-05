@@ -1,3 +1,3 @@
-import CourseConstant from "./module/base.constant";
+import AppConstant from "./module/app.constant";
 
-export { CourseConstant };
+export { AppConstant };

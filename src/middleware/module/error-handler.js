@@ -1,3 +1,4 @@
+import { AppConstant } from "../../constant";
 import logger from "../../utils/logger";
 
 const handleError = (err, req, res, next) => {
@@ -5,10 +6,10 @@ const handleError = (err, req, res, next) => {
 
   let code = err.status || 500;
 
-  const message = err.message || "Internal Server Error";
+  const message = err.message || AppConstant.HTTP.MESSAGE.SERVER_ERROR;
 
   let errors = err.data ? err.data : null;
-  if (message === "Validation Error") {
+  if (message === AppConstant.HTTP.MESSAGE.VALIDATION_ERROR) {
     const arr_check = errors instanceof Array;
 
     if (!arr_check) errors = [errors];
@@ -42,19 +43,19 @@ const handleError = (err, req, res, next) => {
   let status;
   switch (head_code) {
     case "2":
-      status = "Success";
+      status = AppConstant.HTTP.STATUS.SUCCESS;
       break;
     case "3":
-      status = "Redirected";
+      status = AppConstant.HTTP.STATUS.REDIRECTED;
       break;
     case "4":
-      status = "Client Error";
+      status = AppConstant.HTTP.STATUS.CLIENT_ERROR;
       break;
     case "5":
-      status = "Server Error";
+      status = AppConstant.HTTP.STATUS.SERVER_ERROR;
       break;
     default:
-      status = "Unknown Error";
+      status = AppConstant.HTTP.STATUS.UNKNOWN_ERROR;
   }
 
   logger.warn(message);
