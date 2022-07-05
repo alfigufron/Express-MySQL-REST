@@ -42,9 +42,6 @@ const handleError = (err, req, res, next) => {
 
   let status;
   switch (head_code) {
-    case "2":
-      status = AppConstant.HTTP.STATUS.SUCCESS;
-      break;
     case "3":
       status = AppConstant.HTTP.STATUS.REDIRECTED;
       break;
@@ -58,7 +55,8 @@ const handleError = (err, req, res, next) => {
       status = AppConstant.HTTP.STATUS.UNKNOWN_ERROR;
   }
 
-  logger.warn(message);
+  if (["3", "4"].includes(head_code)) logger.warn(message);
+  else logger.error(message);
 
   res.status(code).send({
     meta: { status, message, code },

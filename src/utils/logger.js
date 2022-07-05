@@ -4,7 +4,22 @@ import { datetimeLog } from "./datetime";
 
 const logger = winston.createLogger({
   level: "debug",
-  transports: [new winston.transports.Console()],
+  transports: [
+    new winston.transports.File({
+      name: "app-log",
+      filename: "./logs/app.log",
+      json: false,
+    }),
+
+    new winston.transports.File({
+      name: "error-log",
+      filename: "./logs/error.log",
+      level: "error",
+      json: false,
+    }),
+
+    new winston.transports.Console(),
+  ],
   format: winston.format.combine(
     winston.format.colorize({ all: true }),
 
